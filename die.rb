@@ -5,7 +5,8 @@ class Die
 
   attr_reader :top_face
 
-  def initialize
+  def initialize(dice)
+    @dice = dice
     roll
   end
 
