@@ -7,4 +7,10 @@ describe Hand do
     hand = Hand.new(dice)
     expect(hand.face_values).to eq( %w[ Q Q Q Q Q ])
   end
+
+  specify "a Hand with five Queens is ranked as 'five of a kind'" do
+    dice = 5.times.map { LoadedDie.new('Q') }
+    hand = Hand.new(dice)
+    expect(hand.rank).to eq('five of a kind')
+  end
 end

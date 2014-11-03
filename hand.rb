@@ -8,4 +8,8 @@ class Hand
     @dice.map { |e| e.face_value }
   end
 
+  def rank
+    'five of a kind'
+  end
+  
 end
