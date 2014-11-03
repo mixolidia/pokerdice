@@ -9,8 +9,8 @@ describe Hand do
   end
 
   specify "a Hand with five Queens is ranked as 'five of a kind'" do
-    dice = 5.times.map { LoadedDie.new('Q') }
+    dice = %w[ 9 T J Q A].map { |value| LoadedDie.new(value) }
     hand = Hand.new(dice)
-    expect(hand.rank).to eq('five of a kind')
+    expect(hand.rank).to eq('bupkis')
   end
 end
