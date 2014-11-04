@@ -9,16 +9,17 @@ class Hand
   end
 
   def rank
-    faces = face_values.join
-    counts = Hash.new(0)
+    @counts = Hash.new(0)
     face_values.each do |face|
-      counts[face]+= 1
+      @counts[face]+= 1
     end
 
-    case faces
-    when counts.values.include?(5) ; 'five of a kind'
+    case
+    when @counts.values.include?(5) ; 'five of a kind'
+    when @counts == /T{1}J{1}Q{1}K{1}A{1}/; 'straight hand'
     else ; 'bupkis'
     end
+
   end
 
 end
