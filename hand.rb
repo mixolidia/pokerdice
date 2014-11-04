@@ -16,7 +16,7 @@ class Hand
     end
 
     case faces
-    when counts.values.include?(5) ; 'five of a kind'
+    when /([9TJQKA])\1{4}/ ; 'five of a kind'
     else ; 'bupkis'
     end
   end
