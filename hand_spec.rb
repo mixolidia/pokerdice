@@ -20,4 +20,10 @@ describe Hand do
     expect(hand.rank).to eq('bupkis')
   end
 
+  specify "a Hand with one of each is ranked as 'straight hand'" do
+    dice = %w[ T J Q K A ].map { |value| LoadedDie.new(value) }
+    hand = Hand.new(dice)
+    expect(hand.rank).to eq('straight hand')
+  end
+
 end
