@@ -2,6 +2,18 @@ require_relative 'hand'
 require_relative 'loaded_die'
 
 describe Hand do
+  def hand_with(face_values)
+    # what we started with
+    # dice = face_values.map { |value|
+    #   LoadedDie.new(value)
+    # }
+
+    dice = face_values.map {  |value|
+      double("Die", :face_value => value) \
+        .tap { |double | p [double, double.face_value] }
+    }
+    hand = Hand.new(dice)
+
   it "has five dice, each of which has a known face value" do
     dice = 5.times.map { LoadedDie.new('Q') }
     hand = Hand.new(dice)
