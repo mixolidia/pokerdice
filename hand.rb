@@ -1,7 +1,8 @@
 class Hand
+  attr_accessor :counts, :dice
+
   def initialize(dice = [])
     @dice = dice
-
   end
 
   def face_values
@@ -15,9 +16,12 @@ class Hand
     end
 
     case
-    when @counts.values.include?(5) ; 'five of a kind'
-    when @counts == /T{1}J{1}Q{1}K{1}A{1}/; 'straight hand'
-    else ; 'bupkis'
+    when @counts.values.include?(5)
+      'five of a kind'
+    when @counts == {"T" => 1, "J" => 1, "Q" => 1, "K" => 1, "A" => 1}
+      'straight hand'
+    else
+      'bupkis'
     end
 
   end

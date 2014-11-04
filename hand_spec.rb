@@ -14,7 +14,7 @@ describe Hand do
     expect(hand.rank).to eq('five of a kind')
   end
 
-  specify "a bupkis is not a five of a kind'" do
+  specify "a bupkis is ranked as 'bupkis'" do
     dice = %w[ 9 T J Q A].map { |value| LoadedDie.new(value) }
     hand = Hand.new(dice)
     expect(hand.rank).to eq('bupkis')
